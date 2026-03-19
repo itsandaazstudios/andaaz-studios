@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Overheard At Blue Tokai - Andaaz Studios</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:wght@400;700&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#080808;--offwhite:#e8e4dc;--dim:#7a7570;--red:#c8302a;--gold:#9a7c2a;--border:rgba(232,228,220,0.08)}
+body{background:var(--black);color:var(--offwhite);font-family:'Space Mono',monospace;font-size:14px;line-height:1.7;overflow-x:hidden}
+
+.back{padding:20px 48px;border-bottom:0.5px solid var(--border);display:flex;align-items:center;gap:12px}
+.back a{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);text-decoration:none;cursor:pointer;transition:color .2s}
+.back a:hover{color:var(--offwhite)}
+.back-sep{color:var(--dim);font-size:11px}
+.back-current{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold)}
+
+.hero{padding:80px 48px 64px;border-bottom:0.5px solid var(--border);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end}
+.tag{font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.tag::before{content:'▶';font-size:7px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:72px;line-height:0.92;letter-spacing:0.02em;color:var(--offwhite);margin-bottom:20px}
+.hero-title span{color:var(--red)}
+.hero-sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;color:var(--dim);line-height:1.5;max-width:420px}
+.hero-right{display:flex;flex-direction:column;gap:24px}
+.meta-row{border-top:0.5px solid var(--border);padding-top:16px}
+.meta-label{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--dim);margin-bottom:6px}
+.meta-val{font-size:13px;color:var(--offwhite);letter-spacing:0.04em}
+
+.video-section{border-bottom:0.5px solid var(--border);cursor:pointer;position:relative;overflow:hidden;background:#0a0808}
+.video-thumb{width:100%;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;position:relative}
+.video-thumb img{width:100%;height:100%;object-fit:cover;filter:brightness(0.6);transition:filter .3s}
+.video-section:hover .video-thumb img{filter:brightness(0.4)}
+.play-wrap{position:absolute;display:flex;flex-direction:column;align-items:center;gap:14px}
+.play-circle{width:64px;height:64px;border-radius:50%;border:1.5px solid var(--offwhite);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--offwhite);padding-left:4px;transition:background .2s}
+.video-section:hover .play-circle{background:rgba(200,48,42,0.8);border-color:var(--red)}
+.play-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--offwhite);opacity:0.7}
+
+.insights{display:grid;grid-template-columns:1fr 1fr;border-bottom:0.5px solid var(--border)}
+.insight{padding:40px;border-right:0.5px solid var(--border);border-bottom:0.5px solid var(--border)}
+.insight:nth-child(2n){border-right:none}
+.insight:nth-child(3),.insight:nth-child(4){border-bottom:none}
+.insight-num{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.insight-num::before{content:'';display:block;width:14px;height:0.5px;background:var(--gold)}
+.insight-title{font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.08em;color:var(--offwhite);margin-bottom:12px;line-height:1.1}
+.insight-body{font-size:12px;color:var(--dim);line-height:1.8}
+
+.pullquote{padding:64px 48px;border-bottom:0.5px solid var(--border);display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:center}
+.pq-label{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--dim)}
+.pq-text{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;font-style:italic;line-height:1.3;color:var(--offwhite)}
+.pq-text span{color:var(--red)}
+
+.needle{padding:40px 48px;border-bottom:0.5px solid var(--border)}
+.needle-title{font-family:'Bebas Neue',sans-serif;font-size:32px;letter-spacing:0.1em;color:var(--offwhite);margin-bottom:32px}
+.needle-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0}
+.needle-item{padding:24px 28px;border-right:0.5px solid var(--border)}
+.needle-item:last-child{border-right:none}
+.needle-icon{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.needle-head{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:0.08em;color:var(--offwhite);margin-bottom:8px}
+.needle-desc{font-size:11px;color:var(--dim);line-height:1.7}
+
+.nav-footer{padding:32px 48px;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--border)}
+.nav-footer a{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);text-decoration:none;cursor:pointer;transition:color .2s}
+.nav-footer a:hover{color:var(--offwhite)}
+
+@media(max-width:768px){
+.hero{display:block;padding:40px 20px 32px}
+.hero-title{font-size:52px}
+.hero-sub{font-size:16px}
+.hero-right{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:32px}
+.meta-row{padding:10px 0}
+.insights{grid-template-columns:1fr}
+.insight{border-right:none}
+.insight:nth-child(3),.insight:nth-child(4){border-bottom:0.5px solid var(--border)}
+.insight:last-child{border-bottom:none}
+.pullquote{grid-template-columns:1fr;padding:40px 20px;gap:16px}
+.pq-text{font-size:22px}
+.needle{padding:32px 20px}
+.needle-grid{grid-template-columns:1fr}
+.needle-item{border-right:none;border-bottom:0.5px solid var(--border)}
+.needle-item:last-child{border-bottom:none}
+.back{padding:14px 20px}
+.nav-footer{padding:20px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="back">
+  <a href="index.html">Back to Work</a>
+  <span class="back-sep">/</span>
+  <span class="back-current">Overheard At Blue Tokai</span>
+</div>
+
+<div class="hero">
+  <div class="hero-left">
+    <div class="tag">Case Study · Spec Ad</div>
+    <div class="hero-title">THE CAFE<br>THAT <span>WRITES</span><br>YOUR STORY.</div>
+    <p class="hero-sub">A meet cute, overheard. Where real moments meet generative ones.</p>
+  </div>
+  <div class="hero-right">
+    <div class="meta-row">
+      <div class="meta-label">Brand</div>
+      <div class="meta-val">Blue Tokai Coffee Roasters</div>
+    </div>
+    <div class="meta-row">
+      <div class="meta-label">Format</div>
+      <div class="meta-val">Spec Ad · Short Film</div>
+    </div>
+    <div class="meta-row">
+      <div class="meta-label">Production</div>
+      <div class="meta-val">AI Filmmaking · Higgsfield</div>
+    </div>
+    <div class="meta-row">
+      <div class="meta-label">Director</div>
+      <div class="meta-val">Vandita Gupta · Andaaz Studios</div>
+    </div>
+  </div>
+</div>
+
+<div class="video-section" onclick="window.open('https://youtu.be/setUAhI_cDw','_blank')">
+  <div class="video-thumb">
+    <img src="tokai.jpg" alt="Overheard At Blue Tokai" onerror="this.style.display='none'">
+    <div class="play-wrap">
+      <div class="play-circle">▶</div>
+      <div class="play-label">Watch the film</div>
+    </div>
+  </div>
+</div>
+
+<div class="insights">
+  <div class="insight">
+    <div class="insight-num">01</div>
+    <div class="insight-title">The Brief Nobody Gave</div>
+    <div class="insight-body">Blue Tokai does not have a TV spot. They have great coffee and loyal regulars. This ad imagines what happens when you stop selling the product and start selling what happens around it. The creative block, the stranger, the breakthrough.</div>
+  </div>
+  <div class="insight">
+    <div class="insight-num">02</div>
+    <div class="insight-title">The Cafe as a Character</div>
+    <div class="insight-body">Most cafe ads sell ambience. This one sells friction. A writer who has never been in love. A designer who never had a nursery. Two people who came to work alone and left with their best ideas. Blue Tokai is the reason they met.</div>
+  </div>
+  <div class="insight">
+    <div class="insight-num">03</div>
+    <div class="insight-title">Product Placement Done Right</div>
+    <div class="insight-body">The ice cappuccino appears once. At the end. As a companion to the moment, not the reason for it. That restraint is the strategy. When a brand trusts the story, the story sells the brand.</div>
+  </div>
+  <div class="insight">
+    <div class="insight-num">04</div>
+    <div class="insight-title">AI as a Creative Tool</div>
+    <div class="insight-body">Every frame was directed using Higgsfield. The visual language, soft and slightly uncanny, was a deliberate choice. It mirrors the feeling of the story itself. Something human, touched by something that is not.</div>
+  </div>
+</div>
+
+<div class="pullquote">
+  <div class="pq-label">The line that drives it</div>
+  <div class="pq-text">"Inspiration really does <span>strike here."</span></div>
+</div>
+
+<div class="needle">
+  <div class="needle-title">Why This Moves The Needle</div>
+  <div class="needle-grid">
+    <div class="needle-item">
+      <div class="needle-icon">▶ Brand Equity</div>
+      <div class="needle-head">From Coffee to Culture</div>
+      <div class="needle-desc">Blue Tokai stops being a product and becomes a place that matters. That shift from commodity to culture is worth more than any discount campaign.</div>
+    </div>
+    <div class="needle-item">
+      <div class="needle-icon">▶ Foot Traffic</div>
+      <div class="needle-head">FOMO That Actually Works</div>
+      <div class="needle-desc">Watching this makes you want to go sit in a Blue Tokai and see who you meet. Content that drives physical visits is the hardest kind to make. This does it.</div>
+    </div>
+    <div class="needle-item">
+      <div class="needle-icon">▶ Content Strategy</div>
+      <div class="needle-head">A Series, Not a Spot</div>
+      <div class="needle-desc">"Overheard" is a format, not just a film. Every Blue Tokai in every city has a hundred stories like this. This ad is the pilot episode of a content universe.</div>
+    </div>
+  </div>
+</div>
+
+<div class="nav-footer">
+  <a href="index.html">Back to All Work</a>
+  <a href="mission.html">Next: Mission Get Hired</a>
+</div>
+
+</body>
+</html>
