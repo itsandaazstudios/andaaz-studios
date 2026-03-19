@@ -65,6 +65,19 @@ body{background:var(--black);color:var(--offwhite);font-family:'Space Mono',mono
 .nav-footer{padding:32px 48px;display:flex;justify-content:space-between;align-items:center;border-top:0.5px solid var(--border)}
 .nav-footer a{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--dim);text-decoration:none;transition:color .2s}
 .nav-footer a:hover{color:var(--offwhite)}
+
+@media(max-width:768px){
+.hero{display:block;padding:40px 20px 32px}
+.hero-title{font-size:52px}
+.hero-right{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:32px}
+.deck-header{padding:20px;flex-direction:column;gap:12px;align-items:flex-start}
+.what-section{grid-template-columns:1fr;padding:32px 20px}
+.cta-strip{padding:32px 20px;flex-direction:column;gap:20px}
+.cta-headline{font-size:28px}
+.back{padding:14px 20px}
+.nav-footer{padding:20px}
+}
+
 </style>
 </head>
 <body>
