@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -118,6 +118,52 @@ footer{border-top:0.5px solid var(--border);display:flex;justify-content:space-b
 .lightbox-inner iframe{width:100%;aspect-ratio:16/9;border:none;display:block}
 
 .lightbox-close:hover{color:var(--offwhite)}
+@media(max-width:768px){
+nav{padding:14px 20px;flex-wrap:wrap;gap:10px}
+.nav-links{display:none}
+.reel-btn{font-size:9px;padding:7px 14px}
+.logo{font-size:18px}
+
+.hero{grid-template-columns:1fr;min-height:auto}
+.hero-text{padding:40px 20px 32px;border-right:none;border-bottom:0.5px solid var(--border)}
+.hero-title{font-size:56px}
+.hero-sub{font-size:11px}
+.hero-visual{min-height:240px}
+.film-label{font-size:12px}
+.film-genre{font-size:9px}
+.film-row{padding:0 20px}
+
+.services-row{grid-template-columns:1fr 1fr}
+.service-card{padding:20px 16px;border-bottom:0.5px solid var(--border)}
+.service-title{font-size:18px}
+
+.projects{grid-template-columns:1fr}
+.project{border-right:none;border-bottom:0.5px solid var(--border)}
+.proj-name{font-size:18px}
+.proj-desc{font-size:11px}
+.work-header{padding:20px 20px 14px}
+.section-title{font-size:26px}
+
+.clients-section{padding:24px 20px;gap:20px;flex-direction:column;align-items:flex-start}
+.clients-label{border-right:none;border-bottom:0.5px solid var(--border);padding-right:0;padding-bottom:12px;width:100%}
+.clients-list{gap:12px 20px}
+.client-pill{font-size:13px}
+
+.cta-section{padding:40px 20px;grid-template-columns:1fr;gap:24px}
+.cta-headline{font-size:36px}
+.cta-headline em{font-size:40px}
+.cta-action{align-items:flex-start}
+.btn-big{font-size:10px;padding:13px 24px}
+
+footer{padding:16px 20px;flex-direction:column;gap:12px;align-items:flex-start}
+.foot-copy{font-size:9px}
+
+.hero-right{padding:24px 20px;grid-template-columns:1fr 1fr;display:grid;gap:0}
+.meta-row{padding:12px 0}
+.hero{display:block}
+.tag{font-size:9px}
+}
+
 </style>
 </head>
 <body>
